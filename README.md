@@ -9,7 +9,7 @@ ID | Unit
 ---- | -------------
 0 | Introduction and Syllabus
 1 | Business Analytics and Decision Support
-- | Gentle Introduction into Programming with R
+1.5 | Gentle Introduction into Programming with R
 2 | Business Understanding
 3 | Business Data Understanding
 4 | Business Data Preparation
