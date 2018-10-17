@@ -1,7 +1,7 @@
-# Course Material for the course 'Business Analytics and Decision Support Systems'
+# Course Material for 'Business Analytics and Decision Support Systems with R'
 Hello! 
 
-Thanks for your interest in my work and the topic 'Business Analytics'. Attached you find my teaching and course material for the course 'Business Analytics and Decision Support Systems' at TU Darmstadt and Karlsruhe Institute of Technology (KIT). 
+Thanks for your interest in my work and the topic 'Business Analytics'. Attached you find my teaching and course material for the course 'Business Analytics and Decision Support Systems with R' at Darmstadt University of Technology and Karlsruhe Institute of Technology (KIT). 
 
 The course itself, is divided into the following units: 
 
