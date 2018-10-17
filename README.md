@@ -1,4 +1,4 @@
-# Course Material for Business Analytics
+# Course Material for the course 'Business Analytics and Decision Support Systems'
 Hello! 
 
 Thanks for your interest in my work and the topic 'Business Analytics'. Attached you find my teaching and course material for the course 'Business Analytics and Decision Support Systems' at TU Darmstadt and Karlsruhe Institute of Technology (KIT). 
@@ -18,7 +18,7 @@ ID | Unit
 7 | Deployment of Data Products
 8 | Foundations of Decision-Making and Decision Support
 
-For each unit, you can find the accompanying material in the 'exercise', 'tutorial', and 'lecture' folder of this repository. The best practice is that you clone this git repository and use it with the R-Code directly in R-Studio (for more information see the <a href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN"> R-Studio Tutorial </a>)!
+For each unit, you can find the accompanying material in the 'exercise', 'tutorial', and 'lecture' folder of this repository. The best practice is that you clone this git repository and use it with the R-Code directly in R-Studio (for more information see the <a href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN" target="_blank"> R-Studio Tutorial</a>)!
 
 Please note that:
 
@@ -26,7 +26,7 @@ Please note that:
 * Furthermore, guest lectures will provide insights into state-of-the-art application scenarios.
 * Both, exercises and guest lectures are relevant and serve to prepare yourself for the exam.
 
-If you have further questions, you can contact me at  <d.jung@kit.edu>
+If you have further questions, you can contact me at <d.jung@kit.edu>.
 
 Have a nice day!
 
