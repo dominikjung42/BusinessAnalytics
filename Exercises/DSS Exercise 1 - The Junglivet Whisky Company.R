@@ -1,21 +1,46 @@
-# Exercise 3
-# Topic: Identifying Consumer and Product Groups
-# Please use the google styleguide for your code
-# https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml
-# Contact: Dominik Jung, d.jung@kit.edu
+# Exercise 1 - The Junglivet Whisky Company
 
 
-map = qmap(location = "Karlsruhe Institut of Technology (KIT)", zoom = 14, source="osm")
+# Introduction into spatial data visualization ----------------------------
+# Mapping in ggmap with API key
+library(ggmap)
+key = "AIzaSyA-kFoKnqM9284-iZsGBoWmhKWr_FsjJhk"  # your google api key
+register_google(key)  # run this for every session with ggmap
 
-geocode("Schloss, Karlsruhe")
-castle = data.frame(lon=8.404435, lat=49.01351, name="castle")
-map + geom_point(data = castle,
-                 aes(x = lon,
-                     y = lat))
+# Get lon lat of a specific position
+locations <- c("Karlsruhe", "Darmstadt") %>%
+  geocode()
 
+# Save and load maps
+map = ggplot() +
+  geom_polygon(data = world,  aes(long, lat, group = group), fill = "grey")
+save(map, file = "worldmap_ggmapp.RData")
+load("worldmap_ggmapp.RData")
+plot(map)
+
+# Example ggmaps
+library(dplyr)
+locations <- c("Karlsruhe", "Paris", "New York", "Tokyo", "Peking") %>%
+  geocode()
+
+world <- map_data("world")
+ggplot() +
+  geom_polygon(data = world,  aes(long, lat, group = group), fill = "grey") +
+  geom_point(data = locations, aes(lon, lat), colour = "red", size = 5) + 
+  coord_map("ortho", orientation = c(30, 80, 0)) +
+  theme_void()
+
+#Examples
+qmap(location = "boston university") 
+qmap(location = "Karlsruhe Institute of Technology", zoom = 14) 
+qmap(location = "boston university", zoom = 14, source = "stamen")
+
+
+
+# Case The Junglivet Company ----------------------------------------------
 
 # in the first step, we read in the data and do some prepocessing
-whiskies <- read.csv("whiskies.csv", row.names = 1, stringsAsFactors = FALSE)
+whiskies = read.csv("whiskies.csv", row.names = 1, stringsAsFactors = FALSE)
 
 library("ggplot2")
 ggplot(whiskies, aes(Body)) + 
@@ -26,24 +51,25 @@ ggplot(whiskies, aes(Smoky)) +
 
 sum(is.na(whiskies))  # no missing observations
 
-whiskies_k <- scale(whiskies[2:13])  # rescale for kmeans
+#whiskies = whiskies[-1]  # RUN THIS LINE IF YOU LOADED WHISKIES.CSV WITH THE GUI
+whiskies_k = scale(whiskies[2:13])  # rescale for kmeans
+
 
 # kmeans(data, centers = i)
 
 # let us find a good parameter for k means… 
-ssplot <- function(data, maxCluster = 9) {
-  SSw <- vector()
+ssplot = function(data, maxCluster = 9) {
+  SSw = vector()
   for (i in 2:maxCluster) {
-    SSw[i] <- sum(kmeans(data, centers = i)$withinss)
+    SSw[i] = sum(kmeans(data, centers = i)$withinss)
   }
   plot(1:maxCluster, SSw, type = "b", xlab = "Number of Clusters", ylab = "Within groups sum of squares")
 }
 ssplot(whiskies_k)  # Plot the sum of squares
 
-# Anhand der Grafik für folgenden fit entscheiden
+# Based on the visualization, I decided for 4 clusters
 fit = kmeans(whiskies_k, 4)  # 5 cluster solution 
 
-#######################################################################################################
 # Exkurs
 # Instead of the graphical solution you can also use information criterias to find suitable parameters
  kmeansAIC = function(fit){
@@ -69,13 +95,9 @@ icplot <- function(data, maxCluster = 9) {
 }
 icplot(whiskies_k)  # Plot the sum of squares
 
-
-#######################################################################################################
-
 # append cluster assignment
-whiskies <- data.frame(whiskies, fit$cluster)
-whiskies$fit.cluster <- as.factor(whiskies$fit.cluster)
-
+whiskies = data.frame(whiskies, fit$cluster)
+whiskies$fit.cluster = as.factor(whiskies$fit.cluster)
 
 # Cluster centers can inform on how taste profiles differ between clusters.
 fit$centers
@@ -90,18 +112,18 @@ ggplot(taste.centers , aes(x = Body, y = Smoky, label=rownames(taste.centers))) 
 subset(whiskies, fit.cluster == 3)[,1:13]
 
 # and we can find the most representative whisky for each cluster
-whiskies_r <- whiskies[c(2:13, 17)]
-candidates <- by(whiskies_r[-13], whiskies_r[13], function(data){
-  dists <- sapply(data, function(x) (x - mean(x))^2)
-  dists <- rowSums(dists)
+whiskies_r = whiskies[c(2:13, 17)]
+candidates = by(whiskies_r[-13], whiskies_r[13], function(data){
+  dists = sapply(data, function(x) (x - mean(x))^2)
+  dists = rowSums(dists)
   rownames(data)[dists == min(dists)]
 })
-candidates <- as.numeric(unlist(candidates))
+candidates = as.numeric(unlist(candidates))
 whiskies[candidates, ]
 
 library("ggmap")
 # now we plot them on the map of scotland
-whiskyMap <- qmap(location = "Scotland",
+whiskyMap = qmap(location = "Scotland",
                   zoom = 6,
                   legend = "topleft",
                   maptype = "terrain",
@@ -111,39 +133,7 @@ whiskyMap <- qmap(location = "Scotland",
 whiskyMap + geom_point(data = whiskies,
                        aes(x = lon,
                            y = lat,
-                           colour = fit.cluster,
-                           size = 3))
-
-
-#####################################################################
-
-
-library(arules)
-library(arulesViz)
-
-# Load the data
-shopping.data = read.transactions("scottish-supermarket.csv", format = "basket", sep=",", skip = 1)
-
-
-# Create an item frequency plot for the top 20 items
-itemFrequencyPlot(shopping.data,topN=20,type="absolute")
-summary(shopping.data)
-
-shopping.data = read.transactions("scottish-supermarket.csv", format = "basket", sep=",", rm.duplicates = FALSE, skip = 1)
-
-
-rules<-apriori(data=shopping.data, parameter=list(supp=0.001,conf = 0.001), 
-               appearance = list(default="lhs",rhs="whisky"),
-               control = list(verbose=F))
-rules<-sort(rules, decreasing=TRUE,by="confidence")
-inspect(rules)
-
-plot(rules[1:5])
-
-plot(rules[1:5], interactive=TRUE, shading=NA)
-plot(rules[1:5], method="graph", control=list(type="itemsets"))
-
-
+                           colour = fit.cluster))
 
 
 
