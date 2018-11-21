@@ -4,7 +4,7 @@
 # Introduction into spatial data visualization ----------------------------
 # Mapping in ggmap with API key
 library(ggmap)
-key = "AIzaSyA-kFoKnqM9284-iZsGBoWmhKWr_FsjJhk"  # your google api key
+key = "xxx"  # your google api key
 register_google(key)  # run this for every session with ggmap
 
 # Get lon lat of a specific position
