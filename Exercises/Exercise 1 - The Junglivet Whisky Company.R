@@ -1,5 +1,5 @@
 # Exercise 1 - The Junglivet Whisky Company
-
+# Contact: Dominik Jung, d.jung@kit.edu
 
 # Introduction into spatial data visualization ----------------------------
 # Mapping in ggmap with API key
@@ -20,10 +20,10 @@ plot(map)
 
 # Example ggmaps
 library(dplyr)
-locations <- c("Karlsruhe", "Paris", "New York", "Tokyo", "Peking") %>%
+locations = c("Karlsruhe", "Paris", "New York", "Tokyo", "Peking") %>%
   geocode()
 
-world <- map_data("world")
+world = map_data("world")
 ggplot() +
   geom_polygon(data = world,  aes(long, lat, group = group), fill = "grey") +
   geom_point(data = locations, aes(lon, lat), colour = "red", size = 5) + 
@@ -51,7 +51,7 @@ ggplot(whiskies, aes(Smoky)) +
 
 sum(is.na(whiskies))  # no missing observations
 
-#whiskies = whiskies[-1]  # RUN THIS LINE IF YOU LOADED WHISKIES.CSV WITH THE GUI
+#whiskies = whiskies[-1]  # RUN THIS LINE ONLY IF YOU LOADED WHISKIES.CSV WITH THE GUI
 whiskies_k = scale(whiskies[2:13])  # rescale for kmeans
 
 
