@@ -1,9 +1,9 @@
 # Course Material for 'Business Analytics and Decision Support Systems with R'
 Hello! 
 
-Thanks for your interest in my work and the topic 'Business Analytics'. In this git repository you find my teaching and course material for the course 'Business Analytics and Decision Support Systems with R'. Over the last years I have taught this course (or parts of it) at various universities and business schools such as Darmstadt University of Technology, or Karlsruhe Institute of Technology (KIT), or the HECTOR School of Engineering & Managementsupport. I try continously to improve and update the material - so if you have any complaints, wishes, ideas or questions please feel free to contact me.
+Thanks for your interest in my work and the topic 'Business Analytics'. In this repository you find my teaching and course material for the course 'Business Analytics and Decision Support Systems with R'. Over the last years I have taught this course (or parts of it) at various universities and business schools such as Darmstadt University of Technology, or Karlsruhe Institute of Technology (KIT), or the HECTOR School of Engineering & Managementsupport. I try continously to improve and update the material - so if you have any complaints, wishes, ideas or questions please feel free to contact me.
 
-The course itself, is divided into the following units: 
+The course itself, is organised in the following units: 
 
 ID | Unit
 ---- | -------------
@@ -24,6 +24,7 @@ For my students, please note that:
 * Exercises will deepen the contents of the lectures and address specific problems in more detail. Additionally, questions regarding the lectures can be resolved.
 * Furthermore, guest lectures will provide insights into state-of-the-art application scenarios.
 * Both, exercises and guest lectures are relevant and serve to prepare yourself for the exam.
+* You can use previous exams from the 'exams' folder to prepare yourself for the final course exam.
 
 If you have further questions, you can contact me at <d.jung@kit.edu>.
 
