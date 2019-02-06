@@ -3,7 +3,7 @@ Hello!
 
 Thanks for your interest in my work and the topic *Business Analytics*. In this repository you find my teaching and course material for the course *Business Analytics and Decision Support Systems with R*. Over the last years I have taught this course (or parts of it) at various universities and business schools such as *Darmstadt University of Technology*, or *Karlsruhe Institute of Technology (KIT)*, or the *HECTOR School of Engineering & Managementsupport*. I try continuously to improve and update the material - so if you have any complaints, wishes, ideas or questions please feel free to contact me.
 
-The course itself, is organised in the following units: 
+The course itself is organised in the following units: 
 
 ID | Unit
 ---- | -------------
