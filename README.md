@@ -15,7 +15,7 @@ ID | Unit
 5 | Business Data Preparation
 6 | Business Data Analytics
 7 | Business Data Analytics Evaluation
-8 | Deployment of Data Products
+8 | Deployment of Decision Support Systems
 
 For each unit, you can find the accompanying material in the 'exercise', 'tutorial', and 'lecture' folder of this repository. The best practice is that you clone this git repository and use it with the R-Code directly in R-Studio (for more information see the <a href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN" target="_blank"> R-Studio Tutorial</a>)!
 
