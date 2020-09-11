@@ -26,7 +26,7 @@ For my students, please note that:
 * Both, exercises and guest lectures are relevant and serve to prepare yourself for the exam.
 * You can use previous exams from the *exams* folder to prepare yourself for the final course exam.
 
-If you have further questions, you can contact me at <d.jung@kit.edu>.
+If you have further questions, you can contact me.
 
 Have a nice day!
 
